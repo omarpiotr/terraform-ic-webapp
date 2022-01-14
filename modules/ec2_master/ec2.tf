@@ -14,12 +14,25 @@ resource "aws_instance" "myec2_master" {
     iac       = "terraform"
   }
 
-   provisioner "remote-exec" {
+  provisioner "file" {
+    source      = var.private_key_path
+    destination = "/home/ubuntu/.ssh/capge_projet_kp.pem"
+
+    connection {
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file(var.private_key_path)
+      host        = self.public_ip
+    }
+  }
+
+  provisioner "remote-exec" {
     inline = [
+      //"until [[ -f /var/lib/cloud/instance/boot-finished ]]; do sleep 5 done",
       "sleep 15",
       "sudo apt-get update -y",
       "sleep 5",
-      "chmod 400 /home/ubuntu/.ssh/omar-kp-ajc.pem",
+      "chmod 400 /home/ubuntu/.ssh/capge_projet_kp.pem",
       "sudo apt-get install ansible -y",
       "sudo apt-get install sshpass -y"
       /*"mkdir ansible-deploy",
@@ -32,7 +45,7 @@ resource "aws_instance" "myec2_master" {
     connection {
       type        = "ssh"
       user        = "ubuntu"
-      private_key = file("D:/Formation/AJC/05.DevOps/PROJET/capge_projet_kp.pem")
+      private_key = file(var.private_key_path)
       host        = self.public_ip
     }
   }

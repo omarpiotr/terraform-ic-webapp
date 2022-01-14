@@ -6,3 +6,9 @@ capge-dev-admin : 34.233.136.21
 capge-dev-odoo : 54.242.112.32 
 capge-dev-admin : 54.90.129.16 
 ansible-master : 54.90.129.16 - 54.242.112.32 
+capge-dev-odoo : 3.83.202.6 
+capge-dev-admin : 52.91.227.188 
+ansible-master : 52.91.227.188 - 3.83.202.6 
+capge-dev-odoo : 34.239.117.147 
+capge-dev-admin : 18.208.183.10 
+ansible-master : 18.208.183.10 - 34.239.117.147 
