@@ -19,6 +19,10 @@ module "deploy_ec2_odoo"{
 }
 
 module "deploy_ec2_master" {
+    depends_on = [
+      module.deploy_ec2_server,
+      module.deploy_ec2_odoo
+    ]
     source = "../modules/ec2_master"
     serveur = "AnsibleMaster"
     key_name = "capge_projet_kp"
