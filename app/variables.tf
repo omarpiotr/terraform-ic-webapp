@@ -7,9 +7,9 @@ variable "key_name" {
 }
 
 variable "key_access" {
-  default = "AKIAXXXNTM5FDFLSFKGD" #
+  default = "MY_KEY_ACCESS"
 }
 
 variable "key_secret" {
-  default = "kFJajhurifeyJmGcR5NJO1ACtZODorZDGNkhJcGa" #
+  default = "MY_SECRET_ACCESS"
 }
