@@ -15,21 +15,4 @@ resource "aws_instance" "myec2_worker" {
     iac       = "terraform"
   }
 
-  /*provisioner "remote-exec" {
-      inline = [
-        "sudo apt-get update -y"
-      ]
-
-      connection {
-          type = "ssh"
-          user = var.username
-          private_key = file("${var.private_key_path}")
-          host = self.public_ip
-      }
-  }*/
-
-  /*provisioner "local-exec" {
-      command = "echo capge-${var.env}-${var.serveur} : ${self.public_ip} >> ip_ec2.txt"
-  }*/
-
 }

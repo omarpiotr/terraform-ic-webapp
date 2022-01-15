@@ -1,4 +1,5 @@
 provider "aws" {
   region     = "us-east-1"
-  shared_credentials_file = "D:/Formation/AJC/05.DevOps/PROJET/.aws/credentials"
+  access_key = var.key_access
+  secret_key = var.key_secret
 }
