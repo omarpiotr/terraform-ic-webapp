@@ -28,18 +28,18 @@ resource "aws_instance" "myec2_master" {
 
   provisioner "remote-exec" {
     inline = [
-      //"until [[ -f /var/lib/cloud/instance/boot-finished ]]; do sleep 5 done",
       "sleep 15",
       "sudo apt-get update -y",
       "sleep 5",
       "chmod 400 /home/ubuntu/.ssh/capge_projet_kp.pem",
       "sudo apt-get install ansible -y",
-      "sudo apt-get install sshpass -y"
-      /*"mkdir ansible-deploy",
-      "git clone https://github.com/omarpiotr/ansible-deploy-wordpress.git ./ansible-deploy",
+      "sudo apt-get install sshpass -y",
+      "mkdir ansible-deploy",
+      "git clone https://github.com/Yellow-carpet/ansible_test_proj.git ./ansible-deploy",
       "cd ./ansible-deploy",
       "ansible-galaxy install -r roles/requirements.yml",
-      "ansible-playbook -i hosts.yml playbook.yml -e ansible_connection='ssh' -e ansible_host='${aws_instance.ansible_worker.public_ip}' --private-key '/home/ubuntu/.ssh/omar-kp-ajc.pem'"*/
+      "ansible-playbook -i hosts.yml playbook.yml -e ansible_connection='ssh' -e ansible_host='${var.ec2_odoo_ip}' --private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'",
+      "ansible-playbook -i hosts.yml playbook2.yml -e ansible_connection='ssh' -e ansible_host='${var.ec2_server_ip}' -e host_db='${var.ec2_odoo_ip}' --private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'"
     ]
 
     connection {
@@ -51,7 +51,7 @@ resource "aws_instance" "myec2_master" {
   }
 
   provisioner "local-exec" {
-      command = "echo ansible-master : ${var.ec2_server_ip} - ${var.ec2_odoo_ip} >> ip_ec2.txt"
+      command = "echo pgadmin: ${var.ec2_server_ip}:5050 - odoo: ${var.ec2_odoo_ip}:8069 >> ip_ec2.txt"
   }
 
 }

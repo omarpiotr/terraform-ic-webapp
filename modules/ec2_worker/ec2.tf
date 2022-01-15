@@ -28,8 +28,8 @@ resource "aws_instance" "myec2_worker" {
       }
   }*/
 
-  provisioner "local-exec" {
+  /*provisioner "local-exec" {
       command = "echo capge-${var.env}-${var.serveur} : ${self.public_ip} >> ip_ec2.txt"
-  }
+  }*/
 
 }
