@@ -6,10 +6,11 @@ variable "key_name" {
   default = "capge_projet_kp"
 }
 
+/*
 variable "key_access" {
   default = "MY_KEY_ACCESS"
 }
 
 variable "key_secret" {
   default = "MY_SECRET_ACCESS"
-}
+}*/
