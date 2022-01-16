@@ -48,6 +48,22 @@ variable "ec2_odoo_ip" {
   default = "0.0.0.0"
 }
 
+variable "pgadmin_dns" {
+  default = "5050"
+}
+
+variable "odoo_dns" {
+  default = "8069"
+}
+
+variable "pgadmin_port" {
+  default = "5050"
+}
+
+variable "odoo_port" {
+  default = "8069"
+}
+
 output "ec2_id" {
   value = aws_instance.myec2_master.id
 }

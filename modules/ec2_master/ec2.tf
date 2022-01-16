@@ -35,11 +35,12 @@ resource "aws_instance" "myec2_master" {
       "sudo apt-get install ansible -y",
       "sudo apt-get install sshpass -y",
       "mkdir ansible-deploy",
-      "git clone https://github.com/Yellow-carpet/ansible_test_proj.git ./ansible-deploy",
+      "git clone https://github.com/omarpiotr/ansible_deploy_ic-webapp.git ./ansible-deploy",
       "cd ./ansible-deploy",
       "ansible-galaxy install -r roles/requirements.yml",
-      "ansible-playbook -i hosts.yml playbook.yml -e ansible_connection='ssh' -e ansible_host='${var.ec2_odoo_ip}' --private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'",
-      "ansible-playbook -i hosts.yml playbook2.yml -e ansible_connection='ssh' -e ansible_host='${var.ec2_server_ip}' -e host_db='${var.ec2_odoo_ip}' --private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'"
+      "ansible-playbook -i hosts.yml playbook_odoo.yml -e ansible_connection='ssh' -e ansible_host='${var.ec2_odoo_ip}' --private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'",
+      "ansible-playbook -i hosts.yml playbook_pgadmin.yml -e ansible_connection='ssh' -e ansible_host='${var.ec2_server_ip}' -e host_db='${var.ec2_odoo_ip}' --private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'",
+      "ansible-playbook -i hosts.yml playbook_ic-webapp.yml -e ansible_connection='ssh' -e ansible_host='${var.ec2_server_ip}' -e odoo_url='http://${var.ec2_odoo_ip}:${var.odoo_port}' -e pgadmin_url='http://${var.ec2_server_ip}:${var.pgadmin_port}' --private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'"
     ]
 
     connection {
