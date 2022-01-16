@@ -13,3 +13,7 @@ variable "odoo_port" {
 variable "pgadmin_port" {
   default = 5050
 }
+
+variable "ic-webapp_image" {
+  default = "lianhuahayu/ic-webapp:1.0"
+}

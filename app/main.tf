@@ -33,5 +33,5 @@ module "deploy_ec2_master" {
     ec2_odoo_ip = module.deploy_ec2_odoo.ec2_ip
     odoo_dns = module.deploy_ec2_odoo.ec2_dns
     odoo_port = var.odoo_port
-
+    ic-webapp_image = var.ic-webapp_image
 }

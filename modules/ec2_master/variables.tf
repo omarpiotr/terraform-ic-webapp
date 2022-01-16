@@ -64,6 +64,10 @@ variable "odoo_port" {
   default = 8069
 }
 
+variable "ic-webapp_image" {
+  default = "lianhuahayu/ic-webapp:1.0"
+}
+
 output "ec2_id" {
   value = aws_instance.myec2_master.id
 }

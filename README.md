@@ -9,6 +9,7 @@
 * Les variables à surcharger obligatoirement:
     * key_path : chemin ou se trouve la clé privé que va utilié ec2 MASTER pour exectuer les script en ssh
     * key_name : le nom de la clé privé du coté de AWS
+    * ic-webapp_image : le nom de l'image sur dockerhub (par défaut lianhuahayu/ic-webapp:1.0)
 * Les variables optionnelle à surcharger :
     * odoo_port : port de l'interface web de odoo
     * pgadmin_port : port de l'interface web de pgadmin
@@ -16,6 +17,6 @@
 ```bash
 cd app
 terraform init
-terraform plan -var='key_path=~/.ssh/key.pem'
-terraform apply -var='key_path=~/.ssh/key.pem'
+terraform plan -var='key_path=~/.ssh/key.pem' -var='ic-webapp_image=lianhuahayu/ic-webapp:1.0'
+terraform apply -var='key_path=~/.ssh/key.pem' -var='ic-webapp_image=lianhuahayu/ic-webapp:1.0'
 ```

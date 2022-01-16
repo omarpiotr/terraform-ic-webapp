@@ -49,6 +49,7 @@ resource "aws_instance" "myec2_master" {
         "-e ansible_host='${var.ec2_server_ip}' \\",
         "-e odoo_url='http://${var.odoo_dns}:${var.odoo_port}' \\",
         "-e pgadmin_url='http://${var.pgadmin_dns}:${var.pgadmin_port}' \\",
+        "-e ic_webapp_image='${var.ic-webapp_image}' \\",
         "--private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'"
     ]
 
