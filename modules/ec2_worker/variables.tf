@@ -47,3 +47,7 @@ output "ec2_id" {
 output "ec2_ip" {
   value = aws_instance.myec2_worker.public_ip
 }
+
+output "ec2_dns" {
+  value = aws_instance.myec2_worker.public_dns
+}

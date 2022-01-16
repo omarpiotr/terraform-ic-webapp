@@ -38,9 +38,18 @@ resource "aws_instance" "myec2_master" {
       "git clone https://github.com/omarpiotr/ansible_deploy_ic-webapp.git ./ansible-deploy",
       "cd ./ansible-deploy",
       "ansible-galaxy install -r roles/requirements.yml",
-      "ansible-playbook -i hosts.yml playbook_odoo.yml -e ansible_connection='ssh' -e ansible_host='${var.ec2_odoo_ip}' --private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'",
-      "ansible-playbook -i hosts.yml playbook_pgadmin.yml -e ansible_connection='ssh' -e ansible_host='${var.ec2_server_ip}' -e host_db='${var.ec2_odoo_ip}' --private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'",
-      "ansible-playbook -i hosts.yml playbook_ic-webapp.yml -e ansible_connection='ssh' -e ansible_host='${var.ec2_server_ip}' -e odoo_url='http://${var.ec2_odoo_ip}:${var.odoo_port}' -e pgadmin_url='http://${var.ec2_server_ip}:${var.pgadmin_port}' --private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'"
+      "ansible-playbook -i hosts.yml playbook_odoo.yml -e ansible_connection='ssh' \\",
+        "-e ansible_host='${var.ec2_odoo_ip}' \\",
+        "--private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'",
+      "ansible-playbook -i hosts.yml playbook_pgadmin.yml -e ansible_connection='ssh' \\",
+        "-e ansible_host='${var.ec2_server_ip}' \\",
+        "-e host_db='${var.ec2_odoo_ip}' \\",
+        "--private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'",
+      "ansible-playbook -i hosts.yml playbook_ic-webapp.yml -e ansible_connection='ssh' \\",
+        "-e ansible_host='${var.ec2_server_ip}' \\",
+        "-e odoo_url='http://${var.odoo_dns}:${var.odoo_port}' \\",
+        "-e pgadmin_url='http://${var.pgadmin_dns}:${var.pgadmin_port}' \\",
+        "--private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'"
     ]
 
     connection {
@@ -52,7 +61,7 @@ resource "aws_instance" "myec2_master" {
   }
 
   provisioner "local-exec" {
-      command = "echo pgadmin: ${var.ec2_server_ip}:5050 - odoo: ${var.ec2_odoo_ip}:8069 >> ip_ec2.txt"
+      command = "echo vitrine : ${var.pgadmin_dns} - pgadmin: ${var.ec2_server_ip}:5050 - odoo: ${var.ec2_odoo_ip}:8069 >> ip_ec2.txt"
   }
 
 }

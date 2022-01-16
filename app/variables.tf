@@ -5,3 +5,11 @@ variable "key_path" {
 variable "key_name" {
   default = "capge_projet_kp"
 }
+
+variable "odoo_port" {
+  default = 8069
+}
+
+variable "pgadmin_port" {
+  default = 5050
+}

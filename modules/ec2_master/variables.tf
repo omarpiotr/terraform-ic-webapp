@@ -49,19 +49,19 @@ variable "ec2_odoo_ip" {
 }
 
 variable "pgadmin_dns" {
-  default = "5050"
+  default = "pgadmin-dns.com"
 }
 
 variable "odoo_dns" {
-  default = "8069"
+  default = "odoo-dns.com"
 }
 
 variable "pgadmin_port" {
-  default = "5050"
+  default = 5050
 }
 
 variable "odoo_port" {
-  default = "8069"
+  default = 8069
 }
 
 output "ec2_id" {
