@@ -2,7 +2,7 @@
 * Permet la création de 3 instances :
     * Instance MASTER : qui va exécuter les roles ansibles
     * Instance ODOO : qui contiendra la partie Odoo (odoo + postgres)
-    * Instance PGADMIN : qui contiendra la partie pgAdmin
+    * Instance PGADMIN : qui contiendra la partie pgAdmin + ic-webapp
 * Mettre à jour le fichier .aws/credential en y remplacant les valeurs suivantes par vos données:
     * YOUR_KEY_ID
     * YOUR_ACCESS_KEY
