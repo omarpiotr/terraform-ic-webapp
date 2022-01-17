@@ -1,1 +1,2 @@
 vitrine : ec2-44-201-250-74.compute-1.amazonaws.com - pgadmin: 44.201.250.74:5050 - odoo: 52.91.0.170:8069 
+vitrine : ec2-54-227-109-235.compute-1.amazonaws.com - pgadmin: 54.227.109.235:5050 - odoo: 54.234.13.227:8069 

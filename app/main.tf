@@ -34,4 +34,6 @@ module "deploy_ec2_master" {
     odoo_dns = module.deploy_ec2_odoo.ec2_dns
     odoo_port = var.odoo_port
     ic-webapp_image = var.ic-webapp_image
+    odoo_image = var.odoo_image
+    postgres_image = var.postgres_image
 }
