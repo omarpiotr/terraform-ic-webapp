@@ -17,3 +17,11 @@ variable "pgadmin_port" {
 variable "ic-webapp_image" {
   default = "lianhuahayu/ic-webapp:1.0"
 }
+
+variable "odoo_image" {
+  default = "odoo:13.0"
+}
+
+variable "postgres_image" {
+  default = "postgres:10"
+}

@@ -71,3 +71,11 @@ variable "ic-webapp_image" {
 output "ec2_id" {
   value = aws_instance.myec2_master.id
 }
+
+variable "odoo_image" {
+  default = "odoo:13.0"
+}
+
+variable "postgres_image" {
+  default = "postgres:10"
+}

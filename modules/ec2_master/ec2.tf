@@ -40,6 +40,8 @@ resource "aws_instance" "myec2_master" {
       "ansible-galaxy install -r roles/requirements.yml",
       "ansible-playbook -i hosts.yml playbook_odoo.yml -e ansible_connection='ssh' \\",
         "-e ansible_host='${var.ec2_odoo_ip}' \\",
+        "-e postgres_image='${var.postgres_image}' \\",
+        "-e odoo_image='${var.odoo_image}' \\",
         "--private-key '/home/ubuntu/.ssh/capge_projet_kp.pem'",
       "ansible-playbook -i hosts.yml playbook_pgadmin.yml -e ansible_connection='ssh' \\",
         "-e ansible_host='${var.ec2_server_ip}' \\",
