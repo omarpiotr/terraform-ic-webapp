@@ -12,6 +12,8 @@
     * **key_name** : le nom de la clé privé du coté de AWS
     * **ic-webapp_image** : le nom de l'image sur dockerhub (par défaut lianhuahayu/ic-webapp:1.0)
 * Les variables optionnelle à surcharger :
+    * **odoo_image** : image docker de odoo (par défaut c'est la version 13.0)
+    * **postgres_image** : image docker de postgres (par défaut c'est la version 10.0)
     * **odoo_port** : port de l'interface web de odoo
     * **pgadmin_port** : port de l'interface web de pgadmin
 
