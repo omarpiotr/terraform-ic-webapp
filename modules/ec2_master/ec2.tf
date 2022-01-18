@@ -64,7 +64,7 @@ resource "aws_instance" "myec2_master" {
   }
 
   provisioner "local-exec" {
-      command = "echo vitrine : ${var.pgadmin_dns} - pgadmin: ${var.ec2_server_ip}:5050 - odoo: ${var.ec2_odoo_ip}:8069 >> ip_ec2.txt"
+      command = "echo vitrine : ${var.pgadmin_dns} - pgadmin:${var.ec2_server_ip}:5050 - odoo:${var.ec2_odoo_ip}:8069 > ip_ec2.txt"
   }
 
 }
