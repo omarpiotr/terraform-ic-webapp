@@ -19,8 +19,5 @@
 cd app
 terraform init
 terraform plan 
-terraform apply -var='key_path=~/.ssh/key.pem' \
-                -var='ic-webapp_image=lianhuahayu/ic-webapp:1.0' \
-                -var='odoo_image=odoo:13.0' \
-                -var='postgres_image=postgres:10'
+terraform apply -var='key_path=~/.ssh/key.pem' -var='ic-webapp_image=lianhuahayu/ic-webapp:1.0' -var='odoo_image=odoo:13.0' -var='postgres_image=postgres:10'
 ```
